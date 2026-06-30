@@ -105,6 +105,8 @@ const StockAppV35 = () => {
       setLoading(true);
       const initialData = currentUser.role === 'backoffice' ? BACKOFFICE_STOCK : FRONTSTORE_STOCK;
       setStockData([...initialData]);
+      setSelectedCategory('all');
+      setSearchQuery('');
       setLoading(false);
     }
   }, [currentUser]);
