@@ -1,9 +1,10 @@
-const SHEET_ID = '1igTfe8iVtGfgeDsr6U336ZdKZgx5XI0EvYSsBftryyA';
-const SHEET_NAME = 'เช็คสต็อก (ประจำวัน) cnx';
+const BACKOFFICE_SHEET_ID = '1fSntvIkixMI45eKEI9l_3q6GOO--RzKrouGx8R1TDt4';
+const FRONTSTORE_SHEET_ID = '1ZSSW0W4SEeoQoZY9Wx3_NZg8TDxQwrV2WY8tLmtv9JI';
 
-export const fetchStockFromSheets = async () => {
+export const fetchStockFromSheets = async (role = 'backoffice') => {
   try {
-    const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/query?tqx=out:json&sheet=${encodeURIComponent(SHEET_NAME)}`;
+    const sheetId = role === 'backoffice' ? BACKOFFICE_SHEET_ID : FRONTSTORE_SHEET_ID;
+    const url = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/query?tqx=out:json`;
     
     const response = await fetch(url);
     const text = await response.text();
