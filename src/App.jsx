@@ -205,7 +205,6 @@ const StockAppV35 = () => {
   );
   const displayData = 
     currentUser?.role === 'owner' ? alertStockItems : 
-    currentUser?.role === 'backoffice' ? alertStockItems :
     filteredStock;
 
   if (!currentUser) {
