@@ -113,7 +113,7 @@ const StockAppV35 = () => {
 
   useEffect(() => {
     if (currentUser) {
-      const role = currentUser.role;
+      const role = currentUser.role === 'owner' ? activeTab : currentUser.role;
       const unsubscribe = listenToStockData(role, (data) => {
         if (data && Array.isArray(data)) {
           setStockData(data);
@@ -121,7 +121,7 @@ const StockAppV35 = () => {
       });
       return () => unsubscribe?.();
     }
-  }, [currentUser]);
+  }, [currentUser, activeTab]);
 
   useEffect(() => {
     if (currentUser) {
