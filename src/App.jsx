@@ -200,8 +200,13 @@ const StockAppV35 = () => {
     return matchesSearch && matchesCategory;
   });
 
-  const lowStockItems = filteredStock.filter((item) => item.qty > 0 && item.qty <= item.minAlert);
-  const displayData = currentUser?.role === 'owner' ? lowStockItems : filteredStock;
+  const alertStockItems = filteredStock.filter((item) => 
+    item.qty === 0 || (item.qty > 0 && item.qty <= item.minAlert)
+  );
+  const displayData = 
+    currentUser?.role === 'owner' ? alertStockItems : 
+    currentUser?.role === 'backoffice' ? alertStockItems :
+    filteredStock;
 
   if (!currentUser) {
     return (
@@ -389,7 +394,7 @@ const StockAppV35 = () => {
 
         <div style={{
           padding: '12px 16px', flex: 1, overflowY: 'auto',
-          display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(140px, 1fr))',
+          display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(110px, 1fr))',
           gap: '10px',
         }}>
           {loading ? (
