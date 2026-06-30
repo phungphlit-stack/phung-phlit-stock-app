@@ -1,0 +1,125 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+/* Login Screen */
+.login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f0e8 0%, #ede8dc 100%);
+}
+
+.login-box {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(196, 146, 91, 0.15);
+  text-align: center;
+  width: 100%;
+  max-width: 350px;
+}
+
+.login-box h1 {
+  color: #725446;
+  font-size: 32px;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.login-box .subtitle {
+  color: #8B9D7F;
+  font-size: 14px;
+  margin-bottom: 30px;
+}
+
+.pin-input {
+  padding: 12px;
+  font-size: 18px;
+  border: 2px solid #C4925B;
+  border-radius: 8px;
+  text-align: center;
+  letter-spacing: 8px;
+  font-weight: bold;
+  color: #725446;
+}
+
+.pin-input:focus {
+  outline: none;
+  border-color: #8B9D7F;
+  box-shadow: 0 0 0 3px rgba(196, 146, 91, 0.1);
+}
+
+.error {
+  color: #d32f2f;
+  font-size: 13px;
+  margin-top: -10px;
+}
+
+.btn-login {
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #C4925B 0%, #A67549 100%);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-login:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(196, 146, 91, 0.3);
+}
+
+/* App Screen */
+.app-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f0e8 0%, #ede8dc 100%);
+}
+
+.app-header {
+  background: white;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(196, 146, 91, 0.1);
+}
+
+.app-header h1 {
+  color: #725446;
+  font-size: 24px;
+}
+
+.btn-logout {
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  background: #8B9D7F;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-logout:hover {
+  background: #7a8a6e;
+  transform: translateY(-1px);
+}
+
+.app-main {
+  padding: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  color: #725446;
+}
