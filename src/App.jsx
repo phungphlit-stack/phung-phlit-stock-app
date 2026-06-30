@@ -394,7 +394,7 @@ const StockAppV35 = () => {
 
         <div style={{
           padding: '12px 16px', flex: 1, overflowY: 'auto',
-          display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(110px, 1fr))',
+          display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(120px, 1fr))',
           gap: '10px',
         }}>
           {loading ? (
