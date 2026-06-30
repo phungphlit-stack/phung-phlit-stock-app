@@ -22,9 +22,9 @@ export const fetchStockFromSheets = async () => {
         name_th: cells[1]?.v || '',
         name_en: cells[1]?.v || '',
         category: cells[2]?.v || 'อื่นๆ',
-        qty: Math.max(0, parseInt(cells[4]?.v || 0)),
-        unit: cells[5]?.v || 'แพ็ค',
-        minAlert: Math.max(0, parseInt(cells[5]?.v || 3)),
+        qty: Math.max(0, parseInt(cells[3]?.v || 0)),
+        unit: cells[4]?.v || 'แพค',
+        minAlert: 3,
         lastUpdatedBy: 'Google Sheet',
         lastUpdatedTime: new Date().toLocaleTimeString('th-TH', { hour: '2-digit', minute: '2-digit' }),
       };
