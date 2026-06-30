@@ -1,10 +1,8 @@
-const BACKOFFICE_SHEET_ID = '1igTfe8iVtGfgeDsr6U336ZdKZgx5XI0EvYSsBftryyA';
-const FRONTSTORE_SHEET_ID = '1ZSSW0W4SEeoQoZY9Wx3_NZg8TDxQwrV2WY8tLmtv9JI';
+const SHEET_ID = '1SaQtm7k5CBdlzcqZX2tlbFyrIRwo00coFphFxS7tXQs';
 
 export const fetchStockFromSheets = async (role = 'backoffice') => {
   try {
-    const sheetId = role === 'backoffice' ? BACKOFFICE_SHEET_ID : FRONTSTORE_SHEET_ID;
-    const url = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/query?tqx=out:json`;
+    const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/query?tqx=out:json`;
     
     const response = await fetch(url);
     const text = await response.text();
@@ -16,7 +14,7 @@ export const fetchStockFromSheets = async (role = 'backoffice') => {
       return [];
     }
 
-    const stocks = data.table.rows.map((row, index) => {
+    let stocks = data.table.rows.map((row, index) => {
       const cells = row.c;
       return {
         id: parseInt(cells[0]?.v || index + 1),
@@ -30,6 +28,15 @@ export const fetchStockFromSheets = async (role = 'backoffice') => {
         lastUpdatedTime: new Date().toLocaleTimeString('th-TH', { hour: '2-digit', minute: '2-digit' }),
       };
     });
+
+    // Filter by role: back-office (ID 1-25), front-store (ID 26-67)
+    if (role === 'backoffice') {
+      stocks = stocks.filter(item => item.id <= 25);
+    } else if (role === 'frontstore') {
+      stocks = stocks.filter(item => item.id > 25);
+      // Renumber front-store items from 1
+      stocks = stocks.map((item, idx) => ({ ...item, id: idx + 1 }));
+    }
 
     return stocks;
   } catch (error) {
