@@ -1,4 +1,4 @@
-const BACKOFFICE_SHEET_ID = '1fSntvIkixMI45eKEI9l_3q6GOO--RzKrouGx8R1TDt4';
+const BACKOFFICE_SHEET_ID = '1igTfe8iVtGfgeDsr6U336ZdKZgx5XI0EvYSsBftryyA';
 const FRONTSTORE_SHEET_ID = '1ZSSW0W4SEeoQoZY9Wx3_NZg8TDxQwrV2WY8tLmtv9JI';
 
 export const fetchStockFromSheets = async (role = 'backoffice') => {
